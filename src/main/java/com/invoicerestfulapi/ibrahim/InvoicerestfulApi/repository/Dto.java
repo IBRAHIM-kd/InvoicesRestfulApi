@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.Invoice;
-import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.repository.InvoiceRepository;
+import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.InvoiceRepo;
+
 
 @Component
-public class Dto implements InvoiceRepository {
+public class Dto implements InvoiceRepo {
 
     @Autowired
     InvoiceRepository invoiceRepository;
@@ -30,3 +31,4 @@ public class Dto implements InvoiceRepository {
         return invoiceRepository.findById(id);
     }
 }
+

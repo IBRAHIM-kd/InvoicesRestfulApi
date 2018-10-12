@@ -4,16 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.service.InvoiceService;
 import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.Invoice;
-import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.InvoiceRepository;
+import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.InvoiceRepo;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public abstract class DtoInvoiceService implements InvoiceService {
+public class DtoInvoiceService implements InvoiceService {
 
     @Autowired
-    InvoiceRepository repository;
+    InvoiceRepo repository;
 
     @Override
     public void addInvoice(Invoice invoice) {
