@@ -1,31 +1,38 @@
 package com.invoicerestfulapi.ibrahim.InvoicerestfulApi.controller;
 
-import javax.validation.Valid;
+import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.service.InvoiceService;
+import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.Invoice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("invoices")
 public class InvoiceController {
 
-    @Autowired
-    InvoiceRepository InvoiceRepository;
+	@Autowired
+    InvoiceService invoiceService;
 
-    @GetMapping("/invoices")
-    public List<Invoice> getAllInvoices() {
-        return invoiceRepository.findAll();
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void addInvoice(@Valid @RequestBody @NotNull Invoice invoice) {
+        invoiceService.addInvoice(invoice);
     }
 
-    @PostMapping("/invoices")
-    public Invoice createNote(@Valid @RequestBody Invoice invoice) {
-        return invoiceRepository.save(invoice);
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Invoice> viewAllInvoices() {
+        return invoiceService.viewAllInvoices();
     }
 
-    @GetMapping("/invoices/{id}")
-    public Invoice getInvoiceById(@PathVariable(value = "id") Long invoiceId) {
-        return invoiceRepository.findById(invoiceId)
-                .orElseThrow(() -> new ResourceNotFoundException("Invoice", "id", invoiceId));
+    @GetMapping(value = "/{invoiceId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Invoice viewInvoice(@PathVariable("invoiceId") Long id) {
+        return invoiceService.viewInvoice(id)
+                .orElse(null);
     }
-    
 }

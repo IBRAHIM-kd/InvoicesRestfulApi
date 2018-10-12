@@ -12,13 +12,11 @@ public class InvoiceItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @NotBlank Long quantity;
-    
+    @Positive
+    private Long quantity;
     @NotBlank
     private String description;
-    
-    @NotBlank
+    @Positive
     private BigDecimal unitPrice;
 
     public Long getId() {
