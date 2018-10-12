@@ -11,7 +11,7 @@ mvn spring-boot:run
 
 THAN RUN WITH POSTMAN CLIENTS TO RUN THE ENDPOINTS.
 
-Steps to runs the endpoints are :-
+Steps to runs the endpoints are : --- 
 
 
 1  - POST  http://localhost:8888/invoices 
