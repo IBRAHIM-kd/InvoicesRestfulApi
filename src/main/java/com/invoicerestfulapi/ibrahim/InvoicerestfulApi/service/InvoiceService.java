@@ -7,15 +7,9 @@ import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.Invoice;
 
 public interface InvoiceService {
 
-    void addInvoice(Invoice invoice);
+	 void addInvoice(Invoice invoice);
 
-    List<Invoice> viewAllInvoices();
+	 List<Invoice> viewAllInvoices();
 
-    Optional<Invoice> viewInvoice(Long id);
-
-	List<Invoice> findAll();
-
-	Invoice save(Invoice invoice);
-
-	Invoice findById(Long invoiceId);
+	 Optional<Invoice> viewInvoice(Long id);
 }

@@ -5,27 +5,28 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model.Invoice;
 import com.invoicerestfulapi.ibrahim.InvoicerestfulApi.repository.InvoiceRepository;
 
 @Component
-public abstract class Dto implements InvoiceRepository {
-	
-	 @Autowired
-	 InvoiceRepository invoiceRepository;
+public class Dto implements InvoiceRepository {
 
-	 @Override
-	 public Invoice save(Invoice invoice) {
-	     return invoiceRepository.save(invoice);
-	        
-	    }   
+    @Autowired
+    InvoiceRepository invoiceRepository;
 
-	 @Override
-	 public List<Invoice> findAll() {
-	     return invoiceRepository.findAll();
-	    }
+    @Override
+    public Invoice save(Invoice invoice) {
+        return invoiceRepository.save(invoice);
+    }
 
-	 public Optional<Invoice> findById(Long id) {
-	     return ((Dto) invoiceRepository).findById(id);
-	    }
-	}
+    @Override
+    public List<Invoice> findAll() {
+        return invoiceRepository.findAll();
+    }
+
+    @Override
+    public Optional<Invoice> findById(Long id) {
+        return invoiceRepository.findById(id);
+    }
+}
