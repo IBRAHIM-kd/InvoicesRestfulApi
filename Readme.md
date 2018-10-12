@@ -14,7 +14,7 @@ THAN RUN WITH POSTMAN CLIENTS TO RUN THE ENDPOINTS.
 Steps to runs the endpoints are : --- 
 
 
-1  - POST  http://localhost:8888/invoices 
+1  - POST  http://localhost:8080/invoices 
 
 
 {
@@ -33,11 +33,11 @@ Steps to runs the endpoints are : ---
 
 
 
-2 - GET  http://localhost:8888/invoices
+2 - GET  http://localhost:8080/invoices
 
 
 
-3 - GET  http://localhost:8888/invoices/1
+3 - GET  http://localhost:8080/invoices/1
 
 
 
