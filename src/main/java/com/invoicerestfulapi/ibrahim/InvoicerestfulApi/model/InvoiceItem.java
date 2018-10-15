@@ -55,8 +55,8 @@ public class InvoiceItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        InvoiceItem lineItem = (InvoiceItem) o;
-        return Objects.equals(id, lineItem.id);
+        InvoiceItem invoiceItem = (InvoiceItem) o;
+        return Objects.equals(id, invoiceItem.id);
     }
 
     @Override
