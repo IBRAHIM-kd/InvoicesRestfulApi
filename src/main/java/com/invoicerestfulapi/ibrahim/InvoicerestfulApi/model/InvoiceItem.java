@@ -3,7 +3,9 @@ package com.invoicerestfulapi.ibrahim.InvoicerestfulApi.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
+
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Objects;
 
 @Entity
@@ -50,6 +52,14 @@ public class InvoiceItem {
     public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
+    
+	public BigDecimal getInvoiceItemTotal() {
+		BigDecimal invoiceItemTotal = new BigDecimal(0);
+		if (unitPrice != null && quantity != null) {
+			invoiceItemTotal = invoiceItemTotal.add(unitPrice).multiply(new BigDecimal(quantity));
+		}
+		return invoiceItemTotal.setScale(2, RoundingMode.HALF_UP);
+	}
 
     @Override
     public boolean equals(Object o) {
